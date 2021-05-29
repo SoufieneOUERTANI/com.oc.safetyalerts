@@ -28,7 +28,8 @@ public class AdressServiceImpl implements IAdressService {
 	
 
 	@Override
-    public Optional<Adress> getAdress(final long id) {
+    //public Optional<Adress> getAdress(final long id) {
+    public Optional<Adress> getAdress(final String id) {
         return adressRepository.findById(id);
     }
 
@@ -38,7 +39,9 @@ public class AdressServiceImpl implements IAdressService {
     }
 
 	@Override
-    public void deleteAdress(final long id) {
+    //public void deleteAdress(final long id) {
+	public void deleteAdress(final String id) {
+
         adressRepository.deleteById(id);
     }
 

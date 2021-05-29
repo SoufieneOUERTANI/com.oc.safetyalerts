@@ -27,10 +27,11 @@ import lombok.NoArgsConstructor;
 public class Adress {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idAdress;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//private long idAdress;
+	private String idAdress;
 
-	private String adress;
+	//private String adress;
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST,

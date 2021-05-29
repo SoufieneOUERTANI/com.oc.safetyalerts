@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oc.safetyalerts.model.Adress;
 import com.oc.safetyalerts.model.Person;
 import com.oc.safetyalerts.service.IPersonService;
 
@@ -68,6 +69,12 @@ public class PersonRestController {
 			thePerson.getAdress().addPerson(thePerson);
 		}
 		*/
+		
+		// In case of the adress already exists, we create the person, and then update the adress field with the adress
+		Adress theAdess = thePerson.getAdress();
+		thePerson.setAdress(null);
+		personService.savePerson(thePerson);
+		thePerson.setAdress(theAdess);
 		personService.savePerson(thePerson);
 		
 		return thePerson;

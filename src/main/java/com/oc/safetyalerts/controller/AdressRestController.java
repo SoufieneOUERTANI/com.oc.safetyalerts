@@ -38,12 +38,14 @@ public class AdressRestController {
 	
 	@GetMapping("/adresses/{adressId}")
 	@ResponseStatus(code = HttpStatus.FOUND)
-	public Optional<Adress> getAdress(@PathVariable long adressId) {
+	//public Optional<Adress> getAdress(@PathVariable long adressId) {
+	public Optional<Adress> getAdress(@PathVariable String idAdress) {
+
 		
-		Optional<Adress> theAdress = adressService.getAdress(adressId);
+		Optional<Adress> theAdress = adressService.getAdress(idAdress);
 		
 		if (theAdress == null) {
-			throw new RuntimeException("Adress id not found - " + adressId);
+			throw new RuntimeException("Adress id not found - " + idAdress);
 		}
 		
 		return theAdress;
@@ -77,7 +79,9 @@ public class AdressRestController {
 	
 	@DeleteMapping("/adresses/{adressId}")
 	@ResponseStatus(code = HttpStatus.ACCEPTED)
-	public String deleteAdress(@PathVariable long adressId) {
+	//public String deleteAdress(@PathVariable long adressId) {
+	public String deleteAdress(@PathVariable String adressId) {
+
 		
 		Optional<Adress> tempAdress = adressService.getAdress(adressId);
 		

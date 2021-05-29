@@ -7,10 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.io.UnsupportedEncodingException;
+//import java.io.UnsupportedEncodingException;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+//import org.json.JSONException;
+//import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,13 +20,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
+//import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 //import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+//import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oc.safetyalerts.model.Adress;
 import com.oc.safetyalerts.service.impl.AdressServiceImpl;
@@ -139,7 +139,7 @@ class AdressRestControllerTest {
 		MvcResult mvcResult;
 		mvcResult = adressMockMvc.perform(MockMvcRequestBuilders
 				.post("/adresses")
-				.content(Util.asJsonString(new Adress(0, "Adress_01")))
+				.content(Util.asJsonString(new Adress(0, "Adress_01", null)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
@@ -187,7 +187,7 @@ class AdressRestControllerTest {
 	void testDeleteAdress() throws Exception {
 		adressMockMvc.perform(MockMvcRequestBuilders
 				.post("/adresses")
-				.content(Util.asJsonString(new Adress(0, "Adress_01")))
+				.content(Util.asJsonString(new Adress(0, "Adress_01", null)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
@@ -196,7 +196,7 @@ class AdressRestControllerTest {
 
 		adressMockMvc.perform(MockMvcRequestBuilders
 				.delete("/adresses/")
-				.content(Util.asJsonString(new Adress(0, "Adress_01")))
+				.content(Util.asJsonString(new Adress(0, "Adress_01", null)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())

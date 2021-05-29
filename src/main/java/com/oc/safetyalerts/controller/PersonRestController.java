@@ -63,7 +63,11 @@ public class PersonRestController {
 		// this is to force a save of new item ... instead of update
 		
 		//thePerson.setIdPerson(0);
-		
+		/*
+		if (thePerson.getAdress() != null) {
+			thePerson.getAdress().addPerson(thePerson);
+		}
+		*/
 		personService.savePerson(thePerson);
 		
 		return thePerson;

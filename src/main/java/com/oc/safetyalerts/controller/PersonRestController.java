@@ -74,8 +74,7 @@ public class PersonRestController {
 	@PutMapping("/persons")
 	public Person updatePerson(@RequestBody Person thePerson) {
 		
-		thePerson = personService.savePerson(thePerson);
-		
+		personService.savePerson(thePerson);
 		return thePerson;
 	}
 	
